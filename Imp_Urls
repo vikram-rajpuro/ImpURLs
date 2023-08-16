@@ -6,3 +6,131 @@
  Raw packet programming
 */
 http://tuprints.ulb.tu-darmstadt.de/6243/1/TR-18.pdf
+
+
+
+It was long research I have did for these simple steps and documentation and I am listing it here for someone like me.
+
+Before following the procedure please disable SIP
+start your Mac in recovery mode by shutting it down and starting it by pressing command+R button until apple logo comes up. open terminal application and enter below command
+
+csrutil disable
+reboot
+These are the important command for coping kext using root access to the location, changing its ownership to wheel, checking its dependancies of osbundlelibraries and checking if the kext is loadable or not.
+
+sudo cp -R
+
+sudo chown -R root:wheel
+
+sudo kextlibs -xml //checks the osbundlelibrary files to be present in info plist
+
+sudo kextutil -n -t // check the kext and logs if the kext loadable or not
+
+sudo kextutil -n // check the kext and logs if the kext loadable or not
+
+sudo kextutil // check the kext and logs if the kext loadable or not
+
+sudo kextload // loads your kext if kernel doesn’t generate panic
+
+sudo kextunload // unloads your kext
+
+Important urls
+https://people.sissa.it/~inno/pubs/skb-reduced.pdf
+
+https://github.com/objective-see/LuLu
+
+https://objective-see.com/blog/blog_0x0B.html
+
+https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/KEXTConcept/KEXTConceptIntro/introduction.html#//apple_ref/doc/uid/10000191-SW1
+
+https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/KernelProgramming/boundaries/boundaries.html
+
+https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/NKEConceptual/intro/intro.html#//apple_ref/doc/uid/TP40001858-CH225-SW1
+
+https://developer.apple.com/library/archive/documentation/DeviceDrivers/Conceptual/IOKitFundamentals/Features/Features.html#//apple_ref/doc/uid/TP0000012-TPXREF101
+
+https://developer.apple.com/library/archive/documentation/DeviceDrivers/Conceptual/AccessingHardware/AH_Intro/AH_Intro.html#//apple_ref/doc/uid/TP30000376
+
+https://developer.apple.com/library/archive/documentation/Networking/Conceptual/CFNetwork/Introduction/Introduction.html#//apple_ref/doc/uid/TP30001132
+
+https://developer.apple.com/library/archive/documentation/DeviceDrivers/Conceptual/WritingDeviceDriver/Introduction/Intro.html#//apple_ref/doc/uid/TP30000694
+
+https://developer.apple.com/library/archive/navigation/index.html#section=Technologies&topic=Kernel
+
+https://developer.apple.com/library/archive/documentation/DeviceDrivers/Conceptual/NetworkDriver/2_IONetworkingFamily/IONetworkingFamily.html
+
+http://dbmanagement.info/Books/MIX/OS_X_and_iOS_Kernel_Programming.pdf
+
+https://www.fortinet.com/blog/threat-research/monitoring-macos--part-iii--monitoring-network-activities-using-.html
+
+https://fortiguard.com/events/2270/learn-how-to-build-your-own-utility-to-monitor-malicious-behaviors-of-malware-on-macOS
+
+https://github.com/slavaim/MacOSX-Network-Sockets-Filter
+
+http://mirror.informatimago.com/next/developer.apple.com/documentation/Darwin/Conceptual/howto/kext_tutorials/hello_kext/hello_kext.html
+
+https://www.blackhat.com/us-18/presenters/Yu-Wang.html
+
+kernel control/event api usage
+
+https://www.synack.com/2015/12/13/monitoring-process-creation-via-the-kernel-part-iii/
+
+Best working model
+
+https://github.com/LawlietRyuzakiCode/NKETest
+
+http://hitcon.org/2013/download/[B1]%20Pedro_HiTCON%202013%20Presentation_v2.pdf
+
+https://github.com/changpingc/kernet
+
+IMP Packet Creation Source enderunix Packet Creation Source
+
+https://github.com/robbiehanson/CocoaAsyncSocket/tree/master/Examples/GCD
+https://tools.ietf.org/html/rfc7230
+https://developer.apple.com/documentation/security/certificate_key_and_trust_services?language=objc
+http://openssl.cs.utah.edu/docs/apps/x509v3_config.html
+https://docs.mitmproxy.org/stable/concepts-howmitmproxyworks/
+http://technologeeks.com/course.jl?course=OSXRE
+https://www.fastcompany.com/3042030/the-huge-web-security-loophole-that-most-people-dont-know-about-and-how-its-be
+https://stackoverflow.com/questions/589622/how-does-a-root-ca-verify-a-signature
+https://deliciousbrains.com/https-locally-without-browser-privacy-errors/
+https://rednaga.io/2017/04/09/remote_kext_debugging/
+http://www.robertopasini.com/index.php/2-uncategorised/628-osx-packaging-a-kernel-extension-for-distribution-and-installation
+http://ddeville.me/2015/08/using-the-vmware-fusion-gdb-stub-for-kernel-debugging-with-lldb
+https://objective-see.com/blog.html
+https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/KEXTConcept/KEXTConceptDebugger/debug_tutorial.html
+https://forums.macrumors.com/threads/turn-off-verbose-bootup.1247361/
+https://adimitrov.net/main/code/code/raw_packet.c
+http://www.enderunix.org/docs/en/rawipspoof/
+https://www.eit.lth.se/ppplab/IPHeader.htm#TOS,%20Type%20of%20Service
+https://www.tenouk.com/download/pdf/Module39.pdf
+https://developer.apple.com/library/archive/documentation/DeviceDrivers/Conceptual/IOKitFundamentals/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP0000018-BAJFFJAD
+https://github.com/slavaim/MacOSX-Network-Sockets-Filter
+https://www.blackhat.com/us-18/arsenal.html#learn-how-to-build-your-own-utility-to-monitor-malicious-behaviors-of-malware-on-macos
+https://developer.apple.com/documentation/networkextension?language=objc
+https://github.com/TrustRouter/TrustRouter/blob/master/client/kernelmode/MacOS/trustrouter/trustrouter.c
+https://github.com/LawlietRyuzakiCode/NKETest/blob/master/TestFilter/TestFilter/TestFilter.c
+https://objective-see.com/blog/blog_0x0B.html
+http://www.ragingmenace.com/software/menumeters/
+https://people.sissa.it/~inno/pubs/skb-reduced.pdf
+http://haifux.org/lectures/122/FreeBSD_kernel_networking.pdf
+http://www.zytrax.com/books/dns/ch15/
+alternate packet forward and check
+
+sudo lsof -iTCP -sTCP:LISTEN -n -P
+
+netstat -a -n
+
+sudo pfctl -s nat
+
+sudo pfctl -F all -f /etc/pf.conf
+
+echo " rdr pass inet proto tcp from any to any port 80 -> 127.0.0.1 port 8080 rdr pass inet proto tcp from any to any port 443 -> 127.0.0.1 port 8443 " | sudo pfctl -ef -
+
+nettop
+
+sudo tcpdump -i en0 -p -vv -A ip and host 192.168.1.92
+
+sudo tcpdump -i en0 -p -vv -A ip
+
+sudo tcpdump -i en0 -p -vv -A ip and net 192.0.2.0/24
